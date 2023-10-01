@@ -25,7 +25,7 @@ class Person {
 abstract class House {
   protected door: boolean = false;
   protected key: Key;
-  protected tenants: Person[] = [];
+  private tenants: Person[] = [];
 
   constructor(key: Key) {
     this.key = key;
@@ -36,7 +36,7 @@ abstract class House {
   comeIn(person: Person): void {
     if (this.door) {
       this.tenants.push(person);
-      console.log('Welcome home!');
+      console.log("Welcome home!");
     } else {
       console.log("You can't come in!");
     }
@@ -47,9 +47,9 @@ class MyHouse extends House {
   openDoor(key: Key): void {
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
-      console.log('The door is open.');
+      console.log("The door is open.");
     } else {
-      console.log('The key does not match.');
+      console.log("The key does not match.");
     }
   }
 }
